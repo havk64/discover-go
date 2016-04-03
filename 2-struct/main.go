@@ -23,7 +23,7 @@ func main() {
 }
 
 func printHello(u user) {
-	fmt.Printf("Hello, %s\n", u.Name)
+	fmt.Printf("Hello %s\n", u.Name)
 
 }
 
