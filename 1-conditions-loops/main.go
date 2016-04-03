@@ -23,7 +23,7 @@ func main() {
 
 	if test1(school) {
 		beautifulWeather = true
-		pf("It's a beatiful weather!\n")
+		pf("It's a beautiful weather!\n")
 	}
 
 	if beautifulWeather == true {
