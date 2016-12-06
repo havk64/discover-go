@@ -4,13 +4,32 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"net/url"
+	"os"
 )
 
 func main() {
-	url := "http://www.omdbapi.com/?i=tt0372784&plot=short&r=json"
-	res, err := http.Get(url)
+	uri, err := url.Parse("http://www.omdbapi.com")
 	if err != nil {
-		fmt.Println(err)
+		fmt.Fprintf(os.Stderr, "Error parsing url: %v", err)
+	}
+
+	client := &http.Client{}
+	form := &url.Values{
+		"i":    {"tt0372784"},
+		"plot": {"short"},
+		"r":    {"json"},
+	}
+	uri.RawQuery = form.Encode()
+
+	req, err := http.NewRequest("GET", uri.String(), nil)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "request error: %v", err)
+	}
+
+	res, err := client.Do(req)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Request error: %v\n", err)
 		return
 	}
 
