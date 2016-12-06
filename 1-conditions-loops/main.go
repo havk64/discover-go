@@ -57,7 +57,7 @@ func main() {
 		fmt.Printf("It's a beautiful weather!\n")
 	}
 
-	for i := 0; i < len(holbertonFounders); i++ {
-		fmt.Printf("%s is a founder\n", holbertonFounders[i])
+	for _, founder := range holbertonFounders {
+		fmt.Printf("%s is a founder\n", founder)
 	}
 }
