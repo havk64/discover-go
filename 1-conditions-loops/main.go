@@ -35,10 +35,11 @@ func main() {
 	var (
 		randomNumber      = rand.Intn(100)
 		beautifulWeather  = true
-		holbertonFounders = []string{
+		holbertonFounders = [3]string{
+			"Julien Barbier",
 			"Rudy Rigot",
 			"Sylvain Kalache",
-			"Julien Barbier"}
+		}
 		school = "Holberton School"
 	)
 
