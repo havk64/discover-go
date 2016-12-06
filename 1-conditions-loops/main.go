@@ -6,13 +6,14 @@ import (
 )
 
 func main() {
-	randomNumber := rand.Intn(100)
-	school := "Bad School"
-	var beautifulWeather bool
-	var holbertonFounders []string
+	var (
+		randomNumber      = rand.Intn(100)
+		beautifulWeather  bool
+		holbertonFounders []string
+		school            = "Holberton School"
+	)
 
 	if randomNumber > 50 {
-		school = "Holberton School"
 		fmt.Printf("my random number is %d and is greater than 50\n", randomNumber)
 	} else {
 		fmt.Printf("my random number is %d and is less than 50\n", randomNumber)
