@@ -7,9 +7,9 @@ import (
 )
 
 type user struct {
-	Name string
+	Name string `json: "name"`
 	DOB  string `json: "date_of_birth"`
-	City string
+	City string `json: "city"`
 }
 
 func main() {
