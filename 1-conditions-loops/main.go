@@ -9,7 +9,7 @@ func main() {
 	var (
 		randomNumber      = rand.Intn(100)
 		beautifulWeather  = true
-		holbertonFounders []string
+		holbertonFounders = []string{"Rudy Rigot", "Sylvain Kalache", "Julien Barbier"}
 		school            = "Holberton School"
 	)
 
@@ -25,10 +25,6 @@ func main() {
 
 	if beautifulWeather {
 		fmt.Printf("It's a beautiful weather!\n")
-	}
-
-	if beautifulWeather == true {
-		holbertonFounders = []string{"Rudy Rigot", "Sylvain Kalache", "Julien Barbier"}
 	}
 
 	for i := 0; i < len(holbertonFounders); i++ {
