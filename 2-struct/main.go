@@ -1,3 +1,21 @@
+// Go fundamentals - Struct and Method on Struct
+
+// Requirements:
+//Create a user struct that has the following properties:
+
+// - variable Name of type string that exposed to json is name
+// - variable DOB of type string that exposed to json is dateofbirth
+// - variable City of type string that exposed to json is city
+// - initialize the struct user in a variable called u with the following values:
+//
+// - Betty Holberton as the name
+// - March 7, 1917 as the DOB
+// - Philadelphia as the city
+// - Create a method on the struct that will print Hello
+//
+// - Create a method on the struct that will produce the following input. who
+// was born in would be XX years old today
+
 package main
 
 import (
