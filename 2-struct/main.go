@@ -15,7 +15,6 @@
 //
 // - Create a method on the struct that will produce the following input. who
 // was born in would be XX years old today
-
 package main
 
 import (
@@ -25,9 +24,9 @@ import (
 )
 
 type user struct {
-	Name string `json: "name"`
-	DOB  string `json: "date_of_birth"`
-	City string `json: "city"`
+	Name string `json:"name"`
+	DOB  string `json:"date_of_birth"`
+	City string `json:"city"`
 }
 
 func main() {
