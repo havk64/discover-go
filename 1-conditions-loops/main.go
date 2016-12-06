@@ -18,7 +18,9 @@ func main() {
 	} else {
 		fmt.Printf("my random number is %d and is less than 50\n", randomNumber)
 	}
-	fmt.Printf("I am a student of the %s\n", school)
+	if school == "Holberton School" {
+		fmt.Printf("I am a student of the %s\n", school)
+	}
 
 	if test1(school) {
 		beautifulWeather = true
