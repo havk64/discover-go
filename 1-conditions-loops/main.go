@@ -31,7 +31,9 @@ import (
 )
 
 func main() {
+	// Using actual time as source seed to generate new random number each time
 	rand.Seed(time.Now().UTC().UnixNano())
+	// Grouping variable declaration
 	var (
 		randomNumber      = rand.Intn(100)
 		beautifulWeather  = true
