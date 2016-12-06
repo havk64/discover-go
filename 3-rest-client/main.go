@@ -4,8 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
-	"strconv"
 )
 
 func main() {
@@ -22,12 +20,7 @@ func main() {
 		return
 	}
 
-	rating, err := strconv.ParseFloat(decode.IMDBRating, 64)
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error converting str to float: %v", err)
-	}
-
-	fmt.Printf("The movie : %s was released in %s - the IMDB rating is %v%% "+
+	fmt.Printf("The movie : %s was released in %v - the IMDB rating is %v%% "+
 		"with %s votes.\n", decode.Title, decode.Year,
-		rating*10, decode.IMDBVotes)
+		int(decode.IMDBRating*10), decode.IMDBVotes)
 }
