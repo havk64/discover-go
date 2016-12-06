@@ -8,7 +8,7 @@ import (
 func main() {
 	var (
 		randomNumber      = rand.Intn(100)
-		beautifulWeather  bool
+		beautifulWeather  = true
 		holbertonFounders []string
 		school            = "Holberton School"
 	)
@@ -18,12 +18,12 @@ func main() {
 	} else {
 		fmt.Printf("my random number is %d and is less than 50\n", randomNumber)
 	}
+
 	if school == "Holberton School" {
 		fmt.Printf("I am a student of the %s\n", school)
 	}
 
-	if test1(school) {
-		beautifulWeather = true
+	if beautifulWeather {
 		fmt.Printf("It's a beautiful weather!\n")
 	}
 
@@ -34,9 +34,4 @@ func main() {
 	for i := 0; i < len(holbertonFounders); i++ {
 		fmt.Printf("%s is a founder\n", holbertonFounders[i])
 	}
-}
-
-func test1(s string) bool {
-	return s == "Holberton School"
-
 }
