@@ -19,18 +19,18 @@ func main() {
 		DOB:  "March 7, 1917",
 		City: "Philadelphia",
 	}
-	printHello(u)
-	if err := printCity(u); err != nil {
+	u.PrintHello()
+	if err := u.PrintCity(); err != nil {
 		fmt.Fprintf(os.Stderr, "Struct error: %v\n", err)
 	}
 }
 
-func printHello(u user) {
+func (u user) PrintHello() {
 	fmt.Printf("Hello %s\n", u.Name)
 
 }
 
-func printCity(u user) error {
+func (u user) PrintCity() error {
 	parsing, err := time.Parse("January 2, 2006", u.DOB)
 	if err != nil {
 		fmt.Println(err)
