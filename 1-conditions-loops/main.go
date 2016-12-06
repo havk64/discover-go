@@ -3,14 +3,19 @@ package main
 import (
 	"fmt"
 	"math/rand"
+	"time"
 )
 
 func main() {
+	rand.Seed(time.Now().UTC().UnixNano())
 	var (
 		randomNumber      = rand.Intn(100)
 		beautifulWeather  = true
-		holbertonFounders = []string{"Rudy Rigot", "Sylvain Kalache", "Julien Barbier"}
-		school            = "Holberton School"
+		holbertonFounders = []string{
+			"Rudy Rigot",
+			"Sylvain Kalache",
+			"Julien Barbier"}
+		school = "Holberton School"
 	)
 
 	if randomNumber > 50 {
