@@ -14,13 +14,13 @@ func main() {
 		return
 	}
 
-	var decode Movie
-	if err := json.NewDecoder(res.Body).Decode(&decode); err != nil {
+	var movie Movie
+	if err := json.NewDecoder(res.Body).Decode(&movie); err != nil {
 		fmt.Println(err)
 		return
 	}
 
 	fmt.Printf("The movie : %s was released in %v - the IMDB rating is %v%% "+
-		"with %s votes.\n", decode.Title, decode.Year,
-		int(decode.IMDBRating*10), decode.IMDBVotes)
+		"with %s votes.\n", movie.Title, movie.Year,
+		int(movie.IMDBRating*10), movie.IMDBVotes)
 }
