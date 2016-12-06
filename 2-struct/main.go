@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 	"time"
 )
 
@@ -19,7 +20,9 @@ func main() {
 		City: "Philadelphia",
 	}
 	printHello(u)
-	printCity(u)
+	if err := printCity(u); err != nil {
+		fmt.Fprintf(os.Stderr, "Struct error: %v\n", err)
+	}
 }
 
 func printHello(u user) {
