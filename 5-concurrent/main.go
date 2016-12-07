@@ -47,7 +47,7 @@ func fetchMovies(form *url.Values, movies interface{}) <-chan bool {
 			os.Exit(1)
 		}
 		// Decode the json content using specified struct
-		if err := json.NewDecoder(res.Body).Decode(&movies); err != nil {
+		if err := json.NewDecoder(res.Body).Decode(movies); err != nil {
 			fmt.Println(err)
 			os.Exit(1)
 		}
