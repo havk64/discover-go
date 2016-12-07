@@ -28,11 +28,12 @@ type Movie struct {
 type searchMovies struct {
 	Search []struct {
 		Title  string
-		Year   string `json:"Year"`
-		IMDBID string `json:"imdbID"`
+		Year   string
+		IMDBID string
 	}
 }
 
+// Implementation of String method to "satisfy" Stringer interface on Movie struct
 func (movie *Movie) String() string {
 	return fmt.Sprintf(
 		"The movie : %s was released in %v - the IMDB rating is %v%% "+
