@@ -22,3 +22,11 @@ type Movie struct {
 	Type       string  `json:"Type"`
 	Response   string  `json:"Response"`
 }
+
+type search struct {
+	Result []struct {
+		Title  string
+		Year   int    `json:"Year,string"`
+		IMDBID string `json:"imdbID"`
+	}
+}
