@@ -1,3 +1,15 @@
+// Concurrent REST Client for OMDB Api
+
+// Requirements:
+// Using the client created in the previous tasks, create the command line tool
+// that will concurenlty retreive the for IMDB result for any movie
+// (for example the Matrix movie would be a GET to http://www.omdbapi.com/?s=Matrix)
+
+// The movie must be specified in the command line using the movie flag.
+// If no movie is specified in the command line, it should get all of the
+// Batman movies.
+
+// Measure the execution time of your script.
 package main
 
 import (
