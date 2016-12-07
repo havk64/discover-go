@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"flag"
 	"fmt"
 	"net/http"
 	"net/url"
@@ -9,7 +10,6 @@ import (
 )
 
 func fetchMovies(form *url.Values, movies interface{}) {
-	// ch := make(chan bool)
 	uri, err := url.Parse("http://www.omdbapi.com")
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error parsing url: %v", err)
@@ -34,21 +34,16 @@ func fetchMovies(form *url.Values, movies interface{}) {
 	defer res.Body.Close()
 }
 
-func fetchSearch(m string) {
-	search := "Batman"
-	if m != "" {
-		search = m
-	}
-
+func movieSearch(search *string) {
 	form := &url.Values{
-		"s": {search},
+		"s": {*search},
 	}
 
 	var movies searchMovies
+
 	fetchMovies(form, &movies)
-	fmt.Printf("%#v\n\n", movies)
+
 	for _, v := range movies.Search {
-		// fmt.Printf("%v\n", v.IMDBID)
 		form = &url.Values{
 			"i":    {v.IMDBID},
 			"plot": {"short"},
@@ -56,13 +51,13 @@ func fetchSearch(m string) {
 		}
 		var movie Movie
 		fetchMovies(form, &movie)
-
-		fmt.Printf("The movie : %s was released in %v - the IMDB rating is %v%% "+
-			"with %s votes.\n", movie.Title, movie.Year,
-			int(movie.IMDBRating*10), movie.IMDBVotes)
+		fmt.Printf("%v\n", movie.String())
 	}
 }
 
 func main() {
-	fetchSearch("Matrix")
+	moviePtr := flag.String("movie", "Batman", "Search for a Movie using the OMDB Api")
+	flag.Parse()
+
+	movieSearch(moviePtr)
 }
