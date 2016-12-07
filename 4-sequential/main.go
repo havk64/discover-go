@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"net/url"
 	"os"
+	"time"
 )
 
 // fetchMovies is used to fetch both general movie searches and query for
@@ -40,6 +41,7 @@ func fetchMovies(form *url.Values, movies interface{}) {
 }
 
 func movieSearch(search *string) {
+	start := time.Now()
 	// Build the query
 	form := &url.Values{
 		"s": {*search},
@@ -59,6 +61,8 @@ func movieSearch(search *string) {
 		fetchMovies(form, &movie)
 		fmt.Printf("%v\n", movie.String())
 	}
+	// Measure the execution time
+	defer fmt.Printf("Execution time is %vs\n", time.Since(start).Seconds())
 }
 
 func main() {
