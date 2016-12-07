@@ -54,6 +54,10 @@ func main() {
 		fmt.Println(err)
 		return
 	}
+
+	// Close the response Body
+	defer res.Body.Close()
+
 	// Print the requested result
 	fmt.Printf("The movie : %s was released in %v - the IMDB rating is %v%% "+
 		"with %s votes.\n", movie.Title, movie.Year,
