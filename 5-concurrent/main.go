@@ -58,8 +58,9 @@ func movieSearch(search *string) {
 	var movies searchMovies
 	// Make the query to the Api
 	<-fetchMovies(form, &movies)
-	// Iterate on the result to fetch each individual movies from the API
+	// Initialize the collection to get the list of movies
 	result := make([]*Movie, len(movies.Search))
+	// Iterate on the result to fetch each individual movies from the API
 	for i, v := range movies.Search {
 		wg.Add(1)
 		go func(i int, v string, result []*Movie) {
@@ -74,8 +75,9 @@ func movieSearch(search *string) {
 			defer wg.Done()
 		}(i, v.IMDBID, result)
 	}
-
+	// Wait for the async calls to return
 	wg.Wait()
+	// Iterate through the final list to print the result
 	for _, m := range result {
 		fmt.Printf("%v\n", m.String())
 	}
@@ -84,6 +86,7 @@ func movieSearch(search *string) {
 }
 
 func main() {
+	// Using the flag package to parse the command line arguments
 	moviePtr := flag.String("movie", "Batman", "Search for a Movie using the OMDB Api")
 	flag.Parse()
 
