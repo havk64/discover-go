@@ -60,6 +60,6 @@ func main() {
 
 	// Print the requested result
 	fmt.Printf("The movie : %s was released in %v - the IMDB rating is %v%% "+
-		"with %s votes.\n", movie.Title, movie.Year,
+		"with %s votes\n", movie.Title, movie.Year,
 		int(movie.IMDBRating*10), movie.IMDBVotes)
 }
