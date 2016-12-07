@@ -80,7 +80,7 @@ func movieSearch(search *string) {
 		fmt.Printf("%v\n", m.String())
 	}
 	// Measure the execution time
-	defer fmt.Printf("Execution time is %vs\n", time.Since(start).Seconds())
+	defer fmt.Printf("Execution time is %v\n", time.Since(start))
 }
 
 func main() {
