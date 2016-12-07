@@ -1,8 +1,10 @@
 package main
 
+import "fmt"
+
 type Movie struct {
 	Title      string  `json:"Title"`
-	Year       int     `json:"Year,string"`
+	Year       string  `json:"Year"`
 	Rated      string  `json:"Rated"`
 	Released   string  `json:"Released"`
 	Runtime    string  `json:"Runtime"`
@@ -29,4 +31,11 @@ type searchMovies struct {
 		Year   string `json:"Year"`
 		IMDBID string `json:"imdbID"`
 	}
+}
+
+func (movie *Movie) String() string {
+	return fmt.Sprintf(
+		"The movie : %s was released in %v - the IMDB rating is %v%% "+
+			"with %s votes.", movie.Title, movie.Year,
+		int(movie.IMDBRating*10), movie.IMDBVotes)
 }
