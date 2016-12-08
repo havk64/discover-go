@@ -1,3 +1,12 @@
+// Go Fundamentals = Print format
+
+// The goal of this task is to understand how to use the go print command.
+
+// print to the sdtout Hello, we are Holberton School
+// print the current date/time
+// print only the year
+// print only the month
+// print the only the day
 package main
 
 import (
